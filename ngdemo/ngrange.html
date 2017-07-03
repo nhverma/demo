@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="Scripts/angular.min.js"></script>
+    <title></title>
+    <meta charset="utf-8" />
+    
+</head>
+<body ng-app="rangeExample">
+    <script>
+  angular.module('rangeExample', [])
+    .controller('ExampleController', ['$scope', function($scope) {
+      $scope.value = 75;
+      $scope.min = 10;
+      $scope.max = 90;
+    }]);
+    </script>
+    <form name="myForm" ng-controller="ExampleController">
+        Model as range: <input type="range" name="range" ng-model="value" min="{{min}}" max="{{max}}">
+        <hr>
+        Model as number: <input type="number" ng-model="value"><br>
+        Min: <input type="number" ng-model="min"><br>
+        Max: <input type="number" ng-model="max"><br>
+        value = <code>{{value}}</code><br />
+   
+    </form>
+</body>
+</html>
+</html>

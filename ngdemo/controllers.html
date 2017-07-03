@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="Scripts/angular.min.js"></script>
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body ng-app='app' ng-controller='MainController as main'>
+    <div class='container'>
+        <h1>{{main.title}}</h1>
+        <div ng-controller='SubController as sub'>
+            <h2>{{sub.title}}</h2>
+            <p>If we were not using the <strong>ControllerAs</strong> syntax we would have a problem using title twice!</p>
+        </div>
+    </div>
+   
+</body>
+
+</html>
+<script>
+    angular.module('app', []);
+
+    angular.module('app').controller("MainController", function () {
+        var vm = this;
+        vm.title = 'AngularJS Nested Controller Example';
+    });
+
+    angular.module('app').controller("SubController", function () {
+        var vm = this;
+        vm.title = 'Sub-heading';
+    });
+   
+   </script>

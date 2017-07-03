@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html ng-app="demoApp">
+<head>
+    <title>AngularJS Controllers : Creating Multiple Controllers </title>
+
+    <script src="Scripts/angular.min.js"></script>
+
+    <script>
+        var myApp = angular.module("demoApp", []);
+
+        myApp.controller("CtrlOne", function ($scope) {
+
+            $scope.inputData = "Tutorials Park";
+
+            $scope.reverseData = function () {
+            $scope.inputData = $scope.inputData.split("").reverse().join("");
+            }
+        });
+
+        myApp.controller("CtrlTwo", function ($scope) {
+
+            $scope.inputData = "angularjs";
+
+            $scope.changeUpperCase = function () {
+                $scope.inputData = $scope.inputData.toUpperCase();
+            };
+        });
+    </script>
+</head>
+<body>
+    <!--First Controller -->
+    <div class="well" ng-controller="CtrlOne">
+        <h4>Reverse Text - Controller One</h4>
+        <div class="input-group">
+            <span class="input-group-btn">
+                <button class="btn btn-success" type="button"
+                        ng-click="reverseData()">
+                    Reverse Text
+                </button>
+            </span>
+            <input class="form-control" ng-model="inputData">
+        </div>
+    </div>
+
+    <!--Second Controller -->
+    <div class="well" ng-controller="CtrlTwo">
+        <h4>Convert to UpperCase - Controller Two</h4>
+        <div class="input-group">
+            <span class="input-group-btn">
+                <button class="btn btn-success" type="button"
+                        ng-click="changeUpperCase()">
+                    Change to UpperCase
+                </button>
+            </span>
+            <input class="form-control" ng-model="inputData">
+        </div>
+    </div>
+</body>
+</html>
